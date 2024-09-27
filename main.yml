@@ -1,0 +1,13 @@
+---
+# cockpit-machines test environment setup
+
+- hosts: all
+
+  roles:
+    - add_user
+    - authorized
+    - install_packages
+    - get_image
+    - enable_virtualization
+    - configure_cockpit
+    - enable_cockpit

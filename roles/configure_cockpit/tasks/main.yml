@@ -1,0 +1,12 @@
+---
+
+- name: Unset HTTPS for cockpit
+  copy:
+    content: "[WebService]\nAllowUnencrypted=true\n"
+    dest: "/etc/cockpit/cockpit.conf"
+
+- name: Enable user-root for cockpit
+  lineinfile:
+    path: /etc/cockpit/disallowed-users
+    regexp: ^root$
+    line: "# root"

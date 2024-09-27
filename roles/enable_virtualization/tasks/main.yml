@@ -1,0 +1,21 @@
+---
+
+- name: Enable libvirt serivce when 8
+  service:
+    name: libvirtd
+    enabled: yes
+    state: restarted
+  when: ansible_facts['distribution_major_version'] == "8"
+
+- name: Enable libvirt serivce when 9 or 10
+  service:
+    name: "{{ item }}"
+    enabled: yes
+    state: restarted
+  with_items:
+    - virtqemud.socket
+    - virtnetworkd.socket
+    - virtstoraged.socket
+    - virtnodedevd.socket
+    - virtinterfaced.socket
+  when: ansible_facts['distribution_major_version'] != "8"

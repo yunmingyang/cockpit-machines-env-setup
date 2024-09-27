@@ -1,0 +1,6 @@
+---
+
+- name: Upload pub key to root used for authorized
+  authorized_key:
+    user: "root"
+    key: "{{ lookup('file', '{{ authorized_path }}') }}"

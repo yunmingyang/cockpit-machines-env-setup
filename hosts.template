@@ -1,0 +1,8 @@
+all:
+  hosts:
+    machine1:
+      ansible_host: "{{ machine1 }}"
+  vars:
+    ansible_ssh_user: root
+    ansible_python_interpreter: /usr/libexec/platform-python
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
