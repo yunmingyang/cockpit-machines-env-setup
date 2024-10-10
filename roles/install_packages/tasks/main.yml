@@ -4,6 +4,7 @@
   dnf:
     name: "{{ item }}"
   with_items:
+    - cockpit
     - cockpit-machines
     - python3
     - libvirt-daemon-config-network
