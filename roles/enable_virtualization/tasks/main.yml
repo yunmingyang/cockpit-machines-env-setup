@@ -18,4 +18,5 @@
     - virtstoraged.socket
     - virtnodedevd.socket
     - virtinterfaced.socket
+  ignore_errors: true
   when: ansible_facts['distribution_major_version'] != "8"
