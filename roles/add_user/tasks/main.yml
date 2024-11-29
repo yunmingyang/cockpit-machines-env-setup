@@ -4,4 +4,4 @@
   user:
     name: admin
     password: "{{ 'foobar' | password_hash('sha256') }}"
-    group: wheel
+    groups: wheel
