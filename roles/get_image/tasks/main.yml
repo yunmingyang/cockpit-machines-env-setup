@@ -4,7 +4,7 @@
 - name: Get image for test when x86_64
   get_url:
     url: "{{ image_url }}"
-    dest: /var/lib/libvirt/images/
+    dest: /var/lib/libvirt/images/test.qcow2
 
 - name: Get ISO for test when s390x
   get_url:
