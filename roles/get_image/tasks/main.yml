@@ -1,12 +1,19 @@
 ---
 
 # Pass the URL by the command line parameter
-- name: Get image for test
+- name: Get the image for test
   get_url:
     url: "{{ image_url }}"
     dest: /var/lib/libvirt/images/test.qcow2
 
-- name: Get ISO for test when s390x
+- name: Get the cloud image for test when s390x
+  get_url:
+    url: "{{ cloud_image_url }}"
+    dest: /var/lib/libvirt/images/cloudBase.qcow2
+    validate_certs: no
+  when: ansible_facts["architecture"] == "s390x"
+
+- name: Get the ISO for test when s390x
   get_url:
     url: "{{ iso_url }}"
     dest: /var/lib/libvirt/images/test.iso
